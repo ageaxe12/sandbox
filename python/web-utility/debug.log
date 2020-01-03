@@ -1,0 +1,393 @@
+INFO 2019-10-07 10:45:10,744 autoreload 6 139926244788032 Watching for file changes with StatReloader
+WARNING 2019-10-07 10:45:19,294 log 6 139926199088896 Forbidden (CSRF cookie not set.): /vault/
+WARNING 2019-10-07 10:45:19,296 basehttp 6 139926199088896 "POST /vault/ HTTP/1.1" 403 2868
+WARNING 2019-10-07 10:45:59,903 log 6 139926199088896 Forbidden (CSRF cookie not set.): /vault/
+WARNING 2019-10-07 10:45:59,905 basehttp 6 139926199088896 "POST /vault/ HTTP/1.1" 403 2868
+INFO 2019-10-07 10:48:52,425 autoreload 6 139926244788032 /code/webutility/settings.py changed, reloading.
+INFO 2019-10-07 10:48:52,942 autoreload 10 139665893328704 Watching for file changes with StatReloader
+INFO 2019-10-07 10:49:18,759 autoreload 10 139665893328704 /code/webutility/settings.py changed, reloading.
+INFO 2019-10-07 10:49:19,252 autoreload 12 139811313694528 Watching for file changes with StatReloader
+INFO 2019-10-07 10:49:47,338 autoreload 12 139811313694528 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 10:49:47,789 autoreload 14 139775727994688 Watching for file changes with StatReloader
+INFO 2019-10-07 10:49:55,522 autoreload 14 139775727994688 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 10:49:55,904 autoreload 16 139922545354560 Watching for file changes with StatReloader
+INFO 2019-10-07 10:50:00,479 autoreload 16 139922545354560 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 10:50:01,097 autoreload 18 140389651752768 Watching for file changes with StatReloader
+INFO 2019-10-07 10:50:04,558 basehttp 18 140389528893184 "POST /vault/ HTTP/1.1" 200 31
+INFO 2019-10-07 10:52:01,870 autoreload 18 140389651752768 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 10:52:02,285 autoreload 22 140636495800128 Watching for file changes with StatReloader
+INFO 2019-10-07 10:52:05,630 views 22 140636450277120 Received POST request on Vault /n {'key': 'mykey', 'value': 'myvalue'}
+INFO 2019-10-07 10:52:05,631 basehttp 22 140636450277120 "POST /vault/ HTTP/1.1" 200 31
+INFO 2019-10-07 10:52:49,384 autoreload 22 140636495800128 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 10:52:49,799 autoreload 26 140191173519168 Watching for file changes with StatReloader
+INFO 2019-10-07 10:52:53,057 views 26 140191119603456 Received POST request on Vault /n {'key': 'mykey', 'value': 'myvalue'}
+ERROR 2019-10-07 10:52:53,110 log 26 140191119603456 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 23, in home
+    return save(request)
+  File "/code/vault/views.py", line 37, in save
+    b = DictEntry(key=received_json_data.key, value=received_json_data.value)
+AttributeError: 'dict' object has no attribute 'key'
+ERROR 2019-10-07 10:52:53,115 basehttp 26 140191119603456 "POST /vault/ HTTP/1.1" 500 66281
+INFO 2019-10-07 10:53:40,326 autoreload 26 140191173519168 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 10:53:40,726 autoreload 30 140155094390592 Watching for file changes with StatReloader
+INFO 2019-10-07 10:54:43,795 autoreload 30 140155094390592 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 10:54:44,317 autoreload 32 139905099347776 Watching for file changes with StatReloader
+INFO 2019-10-07 10:55:16,596 autoreload 32 139905099347776 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 10:55:17,014 autoreload 34 140063077304128 Watching for file changes with StatReloader
+INFO 2019-10-07 10:55:20,964 views 34 140063023388416 Received POST request on Vault /n {'key': 'mykey', 'value': 'myvalue'}
+INFO 2019-10-07 10:55:20,984 views 34 140063023388416 Saved Entity DictEntry object (1)
+ERROR 2019-10-07 10:55:21,064 log 34 140063023388416 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 23, in home
+    return save(request)
+  File "/code/vault/views.py", line 44, in save
+    return JsonResponse({"models_to_return": list(b)}, safe=False)
+TypeError: 'DictEntry' object is not iterable
+ERROR 2019-10-07 10:55:21,071 basehttp 34 140063023388416 "POST /vault/ HTTP/1.1" 500 65832
+INFO 2019-10-07 10:55:59,554 autoreload 34 140063077304128 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 10:56:00,166 autoreload 38 140070107146048 Watching for file changes with StatReloader
+INFO 2019-10-07 10:56:03,990 views 38 140070053230336 Received POST request on Vault /n {'key': 'mykey', 'value': 'myvalue'}
+INFO 2019-10-07 10:56:04,010 views 38 140070053230336 Saved Entity DictEntry object (2)
+ERROR 2019-10-07 10:56:04,066 log 38 140070053230336 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 23, in home
+    return save(request)
+  File "/code/vault/views.py", line 44, in save
+    return JsonResponse({"models_to_return": list(b)}, safe=False)
+TypeError: 'DictEntry' object is not iterable
+ERROR 2019-10-07 10:56:04,071 basehttp 38 140070053230336 "POST /vault/ HTTP/1.1" 500 65842
+INFO 2019-10-07 10:56:58,438 autoreload 38 140070107146048 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 10:56:58,900 autoreload 42 140317310461760 Watching for file changes with StatReloader
+INFO 2019-10-07 10:57:03,801 views 42 140317264938752 Received POST request on Vault /n {'key': 'mykey', 'value': 'myvalue'}
+INFO 2019-10-07 10:57:03,802 views 42 140317264938752 Received POST request on Vault /n Key = dict_keys(['key', 'value']), Value = dict_values(['mykey', 'myvalue']) 
+INFO 2019-10-07 10:57:03,820 views 42 140317264938752 Saved Entity DictEntry object (3)
+ERROR 2019-10-07 10:57:03,906 log 42 140317264938752 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 23, in home
+    return save(request)
+  File "/code/vault/views.py", line 46, in save
+    return JsonResponse({"models_to_return": list(b)}, safe=False)
+TypeError: 'DictEntry' object is not iterable
+ERROR 2019-10-07 10:57:03,913 basehttp 42 140317264938752 "POST /vault/ HTTP/1.1" 500 65953
+INFO 2019-10-07 10:58:38,838 autoreload 42 140317310461760 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 10:58:39,289 autoreload 46 140560558954304 Watching for file changes with StatReloader
+INFO 2019-10-07 10:58:41,558 views 46 140560505038592 Received POST request on Vault /n {'key': 'mykey', 'value': 'myvalue'}
+INFO 2019-10-07 10:58:41,559 views 46 140560505038592 Received POST request on Vault /n Key = dict_keys(['key', 'value']), Value = dict_values(['mykey', 'myvalue']) 
+INFO 2019-10-07 10:58:41,577 views 46 140560505038592 Saved Entity DictEntry object (4)
+ERROR 2019-10-07 10:58:41,620 log 46 140560505038592 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 23, in home
+    return save(request)
+  File "/code/vault/views.py", line 46, in save
+    return JsonResponse({"models_to_return": list(b)}, safe=False)
+TypeError: 'DictEntry' object is not iterable
+ERROR 2019-10-07 10:58:41,625 basehttp 46 140560505038592 "POST /vault/ HTTP/1.1" 500 65971
+INFO 2019-10-07 10:59:47,614 autoreload 46 140560558954304 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 10:59:47,957 autoreload 50 139929024710464 Watching for file changes with StatReloader
+INFO 2019-10-07 10:59:50,832 views 50 139928970794752 Received POST request on Vault /n {'key': 'mykey', 'value': 'myvalue'}
+INFO 2019-10-07 10:59:50,833 views 50 139928970794752 Received POST request on Vault /n Key = dict_keys(['key', 'value']), Value = dict_values(['mykey', 'myvalue']) 
+INFO 2019-10-07 10:59:50,850 views 50 139928970794752 Saved Entity DictEntry object (5)
+INFO 2019-10-07 10:59:50,851 basehttp 50 139928970794752 "POST /vault/ HTTP/1.1" 200 23
+INFO 2019-10-07 10:59:58,408 views 50 139928970794752 Received GET ALL request on VAULT
+ERROR 2019-10-07 10:59:58,488 log 50 139928970794752 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 21, in home
+    return getall(request)
+  File "/code/vault/views.py", line 29, in getall
+    return JsonResponse({"models_to_return": list(all_entities)}, safe=False)
+  File "/usr/local/lib/python3.7/site-packages/django/http/response.py", line 558, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/django/core/serializers/json.py", line 104, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type DictEntry is not JSON serializable
+ERROR 2019-10-07 10:59:58,494 basehttp 50 139928970794752 "GET /vault/ HTTP/1.1" 500 93601
+INFO 2019-10-07 11:01:06,538 autoreload 50 139929024710464 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:01:06,854 autoreload 54 140335448188736 Watching for file changes with StatReloader
+INFO 2019-10-07 11:01:14,599 autoreload 54 140335448188736 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:01:14,981 autoreload 56 140326483932992 Watching for file changes with StatReloader
+INFO 2019-10-07 11:01:17,275 views 56 140326429910784 Received GET ALL request on VAULT
+ERROR 2019-10-07 11:01:17,357 log 56 140326429910784 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 21, in home
+    return getall(request)
+  File "/code/vault/views.py", line 29, in getall
+    return JsonResponse(json.loads(all_entities), safe=False)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/utils/json.py", line 37, in loads
+    return json.loads(*args, **kwargs)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 341, in loads
+    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
+TypeError: the JSON object must be str, bytes or bytearray, not QuerySet
+ERROR 2019-10-07 11:01:17,382 basehttp 56 140326429910784 "GET /vault/ HTTP/1.1" 500 74713
+INFO 2019-10-07 11:02:30,566 autoreload 56 140326483932992 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:02:30,878 autoreload 60 140136031254336 Watching for file changes with StatReloader
+INFO 2019-10-07 11:02:34,227 views 60 140135910070016 Received GET ALL request on VAULT
+ERROR 2019-10-07 11:02:34,312 log 60 140135910070016 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 21, in home
+    return getall(request)
+  File "/code/vault/views.py", line 29, in getall
+    return JsonResponse(all_entities, safe=False)
+  File "/usr/local/lib/python3.7/site-packages/django/http/response.py", line 558, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/django/core/serializers/json.py", line 104, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type QuerySet is not JSON serializable
+ERROR 2019-10-07 11:02:34,317 basehttp 60 140135910070016 "GET /vault/ HTTP/1.1" 500 92950
+INFO 2019-10-07 11:03:30,020 autoreload 60 140136031254336 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:03:30,459 autoreload 64 140511308261184 Watching for file changes with StatReloader
+INFO 2019-10-07 11:03:47,132 autoreload 64 140511308261184 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:03:47,460 autoreload 66 140121378027328 Watching for file changes with StatReloader
+INFO 2019-10-07 11:03:50,946 views 66 140121324111616 Received GET ALL request on VAULT
+INFO 2019-10-07 11:03:50,969 basehttp 66 140121324111616 "GET /vault/ HTTP/1.1" 200 661
+INFO 2019-10-07 11:04:57,383 views 66 140121324111616 Received POST request on Vault /n {'key': 'aaaa', 'value': 'aaaaa'}
+INFO 2019-10-07 11:04:57,384 views 66 140121324111616 Received POST request on Vault /n Key = dict_keys(['key', 'value']), Value = dict_values(['aaaa', 'aaaaa']) 
+INFO 2019-10-07 11:04:57,481 views 66 140121324111616 Saved Entity DictEntry object (6)
+INFO 2019-10-07 11:04:57,482 basehttp 66 140121324111616 "POST /vault/ HTTP/1.1" 200 23
+INFO 2019-10-07 11:04:59,478 views 66 140121324111616 Received GET ALL request on VAULT
+INFO 2019-10-07 11:04:59,487 basehttp 66 140121324111616 "GET /vault/ HTTP/1.1" 200 761
+INFO 2019-10-07 11:06:35,759 autoreload 66 140121378027328 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:06:36,091 autoreload 70 140020692784960 Watching for file changes with StatReloader
+INFO 2019-10-07 11:06:39,192 views 70 140020564358912 Received GET ALL request on VAULT
+ERROR 2019-10-07 11:06:39,287 log 70 140020564358912 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 22, in home
+    return getall(request)
+  File "/code/vault/views.py", line 30, in getall
+    return JsonResponse({'results': list(all_entities)})
+  File "/usr/local/lib/python3.7/site-packages/django/http/response.py", line 558, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/usr/local/lib/python3.7/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.7/site-packages/django/core/serializers/json.py", line 104, in default
+    return super().default(o)
+  File "/usr/local/lib/python3.7/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type DictEntry is not JSON serializable
+ERROR 2019-10-07 11:06:39,293 basehttp 70 140020564358912 "GET /vault/ HTTP/1.1" 500 93717
+INFO 2019-10-07 11:08:21,108 autoreload 70 140020692784960 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:08:21,529 autoreload 74 140686782924608 Watching for file changes with StatReloader
+INFO 2019-10-07 11:08:33,863 autoreload 74 140686782924608 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:08:34,331 autoreload 76 139903680026432 Watching for file changes with StatReloader
+INFO 2019-10-07 11:08:40,708 views 76 139903626110720 Received GET ALL request on VAULT
+ERROR 2019-10-07 11:08:40,952 log 76 139903626110720 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 24, in home
+    return getall(request)
+  File "/code/vault/views.py", line 32, in getall
+    return JsonResponse(model_to_dict( all_entities ))
+  File "/usr/local/lib/python3.7/site-packages/django/forms/models.py", line 82, in model_to_dict
+    opts = instance._meta
+AttributeError: 'QuerySet' object has no attribute '_meta'
+ERROR 2019-10-07 11:08:40,956 basehttp 76 139903626110720 "GET /vault/ HTTP/1.1" 500 70688
+INFO 2019-10-07 11:09:04,678 autoreload 76 139903680026432 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:09:05,145 autoreload 80 139825232734016 Watching for file changes with StatReloader
+INFO 2019-10-07 11:09:21,493 autoreload 81 139825232734016 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:09:21,814 autoreload 82 139983716804416 Watching for file changes with StatReloader
+INFO 2019-10-07 11:09:30,654 autoreload 82 139983716804416 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:09:31,077 autoreload 84 139748987258688 Watching for file changes with StatReloader
+INFO 2019-10-07 11:09:35,782 views 84 139748933342976 Received GET ALL request on VAULT
+ERROR 2019-10-07 11:09:35,836 log 84 139748933342976 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 24, in home
+    return getall(request)
+  File "/code/vault/views.py", line 32, in getall
+    dict_obj = model_to_dict(all_entities)
+  File "/usr/local/lib/python3.7/site-packages/django/forms/models.py", line 82, in model_to_dict
+    opts = instance._meta
+AttributeError: 'QuerySet' object has no attribute '_meta'
+ERROR 2019-10-07 11:09:35,840 basehttp 84 139748933342976 "GET /vault/ HTTP/1.1" 500 70709
+INFO 2019-10-07 11:11:23,130 autoreload 84 139748987258688 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:11:23,428 autoreload 88 140215289272128 Watching for file changes with StatReloader
+INFO 2019-10-07 11:11:38,510 autoreload 88 140215289272128 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:11:38,839 autoreload 90 140380168816448 Watching for file changes with StatReloader
+INFO 2019-10-07 11:11:39,964 views 90 140380115425024 Received GET ALL request on VAULT
+ERROR 2019-10-07 11:11:40,025 log 90 140380115425024 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 24, in home
+    return getall(request)
+  File "/code/vault/views.py", line 34, in getall
+    return JsonResponse(serializers.serialize('json', [all_entities,]), safe=False)
+  File "/usr/local/lib/python3.7/site-packages/django/core/serializers/__init__.py", line 128, in serialize
+    s.serialize(queryset, **options)
+  File "/usr/local/lib/python3.7/site-packages/django/core/serializers/base.py", line 94, in serialize
+    concrete_model = obj._meta.concrete_model
+AttributeError: 'QuerySet' object has no attribute '_meta'
+ERROR 2019-10-07 11:11:40,029 basehttp 90 140380115425024 "GET /vault/ HTTP/1.1" 500 77321
+INFO 2019-10-07 11:12:15,202 autoreload 90 140380168816448 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:12:15,546 autoreload 94 140177399007040 Watching for file changes with StatReloader
+INFO 2019-10-07 11:12:17,940 views 94 140177344984832 Received GET ALL request on VAULT
+ERROR 2019-10-07 11:12:17,998 log 94 140177344984832 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/code/vault/views.py", line 24, in home
+    return getall(request)
+  File "/code/vault/views.py", line 34, in getall
+    return JsonResponse(serializers.serialize('json', [all_entities, ]), safe=False)
+  File "/usr/local/lib/python3.7/site-packages/django/core/serializers/__init__.py", line 128, in serialize
+    s.serialize(queryset, **options)
+  File "/usr/local/lib/python3.7/site-packages/django/core/serializers/base.py", line 94, in serialize
+    concrete_model = obj._meta.concrete_model
+AttributeError: 'QuerySet' object has no attribute '_meta'
+ERROR 2019-10-07 11:12:18,007 basehttp 94 140177344984832 "GET /vault/ HTTP/1.1" 500 77323
+INFO 2019-10-07 11:12:30,896 autoreload 94 140177399007040 /code/vault/views.py changed, reloading.
+INFO 2019-10-07 11:12:31,204 autoreload 98 140417749145408 Watching for file changes with StatReloader
+INFO 2019-10-07 11:12:42,055 views 98 140417695229696 Received GET ALL request on VAULT
+INFO 2019-10-07 11:12:42,065 basehttp 98 140417695229696 "GET /vault/ HTTP/1.1" 200 761
+INFO 2019-10-10 16:40:57,753 autoreload 22264 12672 Watching for file changes with StatReloader
+INFO 2019-10-10 16:41:07,120 views 22264 152 Received DELETE request on VAULT for ID http://localhost:8000/vault/
+ERROR 2019-10-10 16:41:07,650 log 22264 152 Internal Server Error: /vault/
+Traceback (most recent call last):
+  File "C:\Users\apal2\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\apal2\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\apal2\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\apal2\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\apal2\Documents\workplace\code\git\GitHub\codei\python-dev\web-utility\vault\views.py", line 28, in home
+    return delete(request)
+  File "C:\Users\apal2\Documents\workplace\code\git\GitHub\codei\python-dev\web-utility\vault\views.py", line 73, in delete
+    return JsonResponse(serializers.serialize('json', dict_entry), safe=False)
+  File "C:\Users\apal2\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\serializers\__init__.py", line 128, in serialize
+    s.serialize(queryset, **options)
+  File "C:\Users\apal2\AppData\Local\Programs\Python\Python37-32\lib\site-packages\django\core\serializers\base.py", line 90, in serialize
+    for count, obj in enumerate(queryset, start=1):
+TypeError: 'DictEntry' object is not iterable
+ERROR 2019-10-10 16:41:07,657 basehttp 22264 152 "DELETE /vault/ HTTP/1.1" 500 88158
+INFO 2019-10-10 16:43:08,276 autoreload 22264 12672 C:\Users\apal2\Documents\workplace\code\git\GitHub\codei\python-dev\web-utility\vault\views.py changed, reloading.
+INFO 2019-10-10 16:43:10,112 autoreload 21460 15192 Watching for file changes with StatReloader
+INFO 2019-10-10 16:43:43,739 autoreload 21460 15192 C:\Users\apal2\Documents\workplace\code\git\GitHub\codei\python-dev\web-utility\vault\views.py changed, reloading.
+INFO 2019-10-10 16:43:44,884 autoreload 11716 6980 Watching for file changes with StatReloader
+INFO 2019-10-14 06:08:47,593 autoreload 6 140605486303040 Watching for file changes with StatReloader
+INFO 2019-10-14 06:16:39,576 autoreload 6 140081159247680 Watching for file changes with StatReloader
+INFO 2019-10-14 06:29:53,623 autoreload 6 139851757532992 Watching for file changes with StatReloader
+INFO 2019-10-14 15:29:11,394 autoreload 6 140532553762624 Watching for file changes with StatReloader
+INFO 2019-10-14 15:31:50,689 autoreload 6 140240350107456 Watching for file changes with StatReloader
+INFO 2019-10-14 15:40:42,817 autoreload 6 140575921346368 Watching for file changes with StatReloader
+INFO 2019-10-14 15:54:07,421 autoreload 6 140397655877440 Watching for file changes with StatReloader
+INFO 2019-10-14 16:01:25,046 autoreload 6 140039131899712 Watching for file changes with StatReloader
