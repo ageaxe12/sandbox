@@ -19,7 +19,7 @@ public class TowersOfHanoiTest {
 
 	private TowersOfHanoi hanoi = new TowersOfHanoi();
 
-	final int STACK_SIZE = 64;
+	final int STACK_SIZE = 12;
 
 	public TowersOfHanoiTest() {
 		for (int i = STACK_SIZE; i > 0; i--) {
