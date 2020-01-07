@@ -10,7 +10,7 @@ package sample.lambda;
 interface FuncInterface 
 { 
     // An abstract function 
-    void abstractFun(int x); 
+    double abstractFun(int x); 
   
     // A non-abstract (or default) function 
     default void normalFun() 
