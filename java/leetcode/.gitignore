@@ -1,0 +1,19 @@
+# Eclipse Files #
+###################
+/.settings/
+/bin/
+.classpath
+.project
+
+# Maven output folder #
+#######################
+/target/
+
+
+# Logs and databases #
+######################
+*.log
+
+# OS generated files #
+######################
+Thumbs.db
