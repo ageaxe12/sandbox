@@ -46,8 +46,6 @@ public class TwoSum {
 			
 		}
 
-		//1 2 3 4 5 
-		//8 7 6 5 4 
 		throw new IllegalArgumentException("No two sum solution");
 	}
 
