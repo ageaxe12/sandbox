@@ -10,8 +10,12 @@ package sample.lambda;
 interface FuncInterface 
 { 
     // An abstract function 
-    double abstractFun(int x); 
-  
+    int abstractFun(int x); 
+
+    // An abstract function wont work
+    //String secondFun(String x); 
+
+    
     // A non-abstract (or default) function 
     default void normalFun() 
     { 
