@@ -21,7 +21,7 @@ public class CollectionTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
+	//@Test
 	public void testContains() {
 		List<List<Integer>> results = new ArrayList<List<Integer>>();
 
@@ -48,7 +48,7 @@ public class CollectionTest {
 
 	}
 
-	@Test
+	//@Test
 	public void testAsArray() {
 		int[] nums = new int[] {-4,-2,1,-5,-4,-4,4,-2,0,4,0,-2,3,1,-5,0};
 		List<Integer> tuple = Arrays.asList(nums[8],

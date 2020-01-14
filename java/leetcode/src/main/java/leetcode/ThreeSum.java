@@ -2,6 +2,7 @@ package leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ import java.util.Stack;
  *
  */
 public class ThreeSum {
-	public List<List<Integer>> approch1(int[] nums) {
+	public List<List<Integer>> threeLoops(int[] nums) {
 		// Time complexity o(n^3) and space complexity o(1)
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		for (int i = 0; i < nums.length; i++) {
@@ -39,7 +40,7 @@ public class ThreeSum {
 		return result;
 	}
 
-	public List<List<Integer>> approch2(int[] nums) {
+	public List<List<Integer>> twoLoops(int[] nums) {
 		// Time complexity o(n^2) and space complexity o(n^2)
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 
@@ -80,36 +81,108 @@ public class ThreeSum {
 		return result;
 	}
 
-	public List<List<Integer>> approch4(int[] nums) {
-		// Time complexity o(n^2) and space complexity o(n^2)
+	public List<List<Integer>> sortedArray(int[] inputArr) {
+
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 
-		List<List<Integer>> additionMap = new ArrayList<List<Integer>>();
+		Arrays.sort(inputArr);
 
-		for (int i = 0; i < nums.length; i++) {
-			for (int j = i + 1; j < nums.length; j++) {
-				additionMap.add(Arrays.asList(i,j));
+		int lastIndex = -99;
+
+		for (int index = 0; index < inputArr.length; index++) {
+			int topIndex = index + 1;
+			int lowIndex = inputArr.length - 1;
+			if (lastIndex > -99 && inputArr[lastIndex] == inputArr[index]) {
+				continue;
 			}
-		}
 
-		for (int i = 2; i < nums.length; i++) {
-			for(List<Integer> addList : additionMap) {
-				if (addList.get(0)+addList.get(1)+nums[i] ==0 && !addList.contains(i) ) {
-					List<Integer> tuple = Arrays.asList(addList.get(0),addList.get(1),nums[i]);
-					if (!this.ifTupleExists(result, tuple))
-						result.add(tuple);
+			boolean upDown = true;
+			while (topIndex < lowIndex) {
+				if (inputArr[index] + inputArr[topIndex] + inputArr[lowIndex] == 0) {
+					result.add(Arrays.asList(inputArr[index], inputArr[topIndex], inputArr[lowIndex]));
+					while (topIndex < lowIndex && inputArr[topIndex] == inputArr[topIndex + 1])
+						topIndex++;
+					topIndex++;
+
+					while (topIndex < lowIndex && inputArr[lowIndex] == inputArr[lowIndex - 1])
+						lowIndex--;
+					lowIndex--;
+					continue;
+				}
+				if (Math.abs(inputArr[index] + (inputArr[topIndex + 1] + inputArr[lowIndex])) == Math
+						.abs(inputArr[index] + (inputArr[topIndex] + inputArr[lowIndex - 1]))) {
+					if (inputArr[index] < 0) {
+						topIndex++;
+					} else {
+						lowIndex--;
+					}
+				} else if (Math.abs(inputArr[index] + (inputArr[topIndex + 1] + inputArr[lowIndex])) < Math
+						.abs(inputArr[index] + (inputArr[topIndex] + inputArr[lowIndex - 1]))) {
+					topIndex++;
+				} else {
+					lowIndex--;
 				}
 			}
+			lastIndex = index;
 		}
 
 		return result;
 	}
 
-	public List<List<Integer>> approch3(Integer[] nums) {
+	public List<List<Integer>> sortedArray2(int[] inputArr) {
+
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+
+		Arrays.sort(inputArr);
+
+		int lastIndex = -99;
+
+		for (int select = 0; select < inputArr.length - 2; select++) {
+			int frontIndex = select + 1;
+			int rearIndex = inputArr.length - 1;
+			if (lastIndex > -99 && inputArr[lastIndex] == inputArr[select]) {
+				continue;
+			}
+
+			while (frontIndex < rearIndex) {
+				if (inputArr[select] + inputArr[frontIndex] + inputArr[rearIndex] == 0) {
+					result.add(Arrays.asList(inputArr[select], inputArr[frontIndex], inputArr[rearIndex]));
+					while (frontIndex < rearIndex && inputArr[frontIndex] == inputArr[frontIndex + 1])
+						frontIndex++;
+					frontIndex++;
+
+					while (frontIndex < rearIndex && inputArr[rearIndex] == inputArr[rearIndex - 1])
+						rearIndex--;
+					rearIndex--;
+					continue;
+				}
+
+				if ((0-( inputArr[select] + inputArr[frontIndex] )) < inputArr[rearIndex]) {
+					rearIndex--;
+				} else {
+					frontIndex++;
+
+				}
+			}
+			lastIndex = select;
+		}
+
+		return result;
+	}
+
+	/**
+	 * Use Stack to store nums In each loop we fix top two as first 2 numbers from 3
+	 * to n check if it matches If march add to solution No Match add to discard
+	 * stack
+	 * 
+	 * @param nums
+	 * @return
+	 */
+	public List<List<Integer>> stackApproch(Integer[] nums) {
 		// Time complexity o(n^2) and space complexity o(n^2)
 		// Check if result can be added without duplicate check
 		// This Solution Selects number only once
-		// TODO Correct the solution 
+		// TODO Correct the solution
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 
 		Stack<Integer> discardStack = new Stack<Integer>();

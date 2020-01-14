@@ -1,7 +1,14 @@
 package leetcode;
 
+import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -10,40 +17,88 @@ public class ThreeSumTest {
 	@Rule
 	public final ExpectedException exception = ExpectedException.none();
 
-	//@Test
-	public void positiveTest4() {
-		int[] source = new int[] {0,14,-7,2,7,11,-9,11,-12,6,-10,-8,9,-3,7,-6,3,4,14,-10,-8,5,-1,6,12,9,12,-11,-15,-5,5,0,-6,13,9,9,10,7,5,13,-2,11,-10,-15,-15,4,-14,-4,-15,7,-7,-15,-3,8,-2,-13,-6,-5,-9,-14,5,12,1,6,2,-12,-8,-11,10,13,-13,-14,1,14,8,1,-4,9,4,-12,-6,13,10,6,6,-7,8,7,3,7,8,-15,-4,-14,-1,13,-11,6,-12,-15,4,12,8,-10,4,1,-1,7,-13,-12,10,-4,8,6,10,-1,6,-5,13,-13,9,6,-13,-10};
-		List<List<Integer>>  result = new ThreeSum().approch1(source);
-		System.out.println("Result 4= "+result);
-	}
-
-	//@Test
-	public void positiveTest42() {
-		int[] source = new int[] {0,14,-7,2,7,11,-9,11,-12,6,-10,-8,9,-3,7,-6,3,4,14,-10,-8,5,-1,6,12,9,12,-11,-15,-5,5,0,-6,13,9,9,10,7,5,13,-2,11,-10,-15,-15,4,-14,-4,-15,7,-7,-15,-3,8,-2,-13,-6,-5,-9,-14,5,12,1,6,2,-12,-8,-11,10,13,-13,-14,1,14,8,1,-4,9,4,-12,-6,13,10,6,6,-7,8,7,3,7,8,-15,-4,-14,-1,13,-11,6,-12,-15,4,12,8,-10,4,1,-1,7,-13,-12,10,-4,8,6,10,-1,6,-5,13,-13,9,6,-13,-10};
-		List<List<Integer>>  result = new ThreeSum().approch2(source);
-		System.out.println("Result 42= "+result);
-	}
+	private Method method;
 	
+	private ThreeSum sumObject = new ThreeSum(); 
 
-	//@Test
-	public void positiveTest5() {
-		int[] source = new int[] {-4,-2,1,-5,-4,-4,4,-2,0,4,0,-2,3,1,-5,0};
-		List<List<Integer>>  result = new ThreeSum().approch1(source);
-		System.out.println("Result 5= "+result);
+	@Before
+    public void setUp() throws NoSuchMethodException, SecurityException {
+
+    	  method = ThreeSum.class.getDeclaredMethod("sortedArray2", int[].class);
+    	  //method.re
+    }
+
+	private void printResult(String methodName, List<List<Integer>> result, int[] source) {
+		Arrays.sort(source);
+		System.out.println(MessageFormat.format("*******Executing Test :: {0} *****\nInput = {1} \nResult = {2}\n",
+				methodName, Arrays.toString(source), result));
+	}
+
+	@Test()
+	public void sameNumbersTest() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		int[] source = new int[] { -1, 1, 0, 2, -1, 0, 0 };
+		List<List<Integer>> result = (List<List<Integer>>)method.invoke(sumObject,source);
+		printResult(Thread.currentThread().getStackTrace()[1].getMethodName(), result, source);
+		assertEquals(result.size(), 3);
 	}
 
 	@Test
-	public void positiveTest52() {
-		int[] source = new int[] {-4,-2,1,-5,-4,-4,4,-2,0,4,0,-2,3,1,-5,0};
-		List<List<Integer>>  result = new ThreeSum().approch2(source);
-		System.out.println("Result 52= "+result);
+	public void zeroNumberTest() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		int[] source = new int[] {};
+		List<List<Integer>> result = (List<List<Integer>>)method.invoke(sumObject,source);
+		printResult(Thread.currentThread().getStackTrace()[1].getMethodName(), result, source);
+		assertEquals(result.size(), 0);
 	}
 
 	@Test
-	public void positiveTest53() {
-		Integer[] source = new Integer[] {-4,-2,1,-5,-4,-4,4,-2,0,4,0,-2,3,1,-5,0};
-		List<List<Integer>>  result = new ThreeSum().approch3(source);
-		System.out.println("Result 53= "+result);
+	public void noMatchTest() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		int[] source = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+		List<List<Integer>> result = (List<List<Integer>>)method.invoke(sumObject,source);
+		printResult(Thread.currentThread().getStackTrace()[1].getMethodName(), result, source);
+		assertEquals(result.size(), 0);
 	}
+
+	@Test
+	public void randomNumberTest() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		int[] source = new int[] { -4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0,2 };
+		List<List<Integer>> result = (List<List<Integer>>)method.invoke(sumObject,source);
+		printResult(Thread.currentThread().getStackTrace()[1].getMethodName(), result, source);
+		assertEquals(result.size(), 8);
+	}
+
 	
+	@Test
+	public void dupicateGroupsTest() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		int[] source = new int[] {-1,-1,0,1,1};
+		List<List<Integer>> result = (List<List<Integer>>)method.invoke(sumObject,source);
+		printResult(Thread.currentThread().getStackTrace()[1].getMethodName(), result, source);
+		assertEquals(result.size(), 1);
+	}
+
+	
+	@Test
+	public void smallGroupTest() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		int[] source = new int[] {0,0,0};
+		List<List<Integer>> result = (List<List<Integer>>)method.invoke(sumObject,source);
+		printResult(Thread.currentThread().getStackTrace()[1].getMethodName(), result, source);
+		assertEquals(result.size(), 1);
+	}
+
+	
+	@Test
+	public void leetCodeFailure1Test() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		int[] source = new int[] {-4,-2,1,-5,-4,-4,4,-2,0,4,0,-2,3,1,-5,0};
+		List<List<Integer>> result = (List<List<Integer>>)method.invoke(sumObject,source);
+		printResult(Thread.currentThread().getStackTrace()[1].getMethodName(), result, source);
+		assertEquals(result.size(), 6);
+	}
+
+	@Test
+	public void leetCodeFailure2Test() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		int[] source = new int[] {-4,-1,-4,0,2,-2,-4,-3,2,-3,2,3,3,-4};
+		List<List<Integer>> result = (List<List<Integer>>)method.invoke(sumObject,source);
+		printResult(Thread.currentThread().getStackTrace()[1].getMethodName(), result, source);
+		assertEquals(result.size(), 4);
+	}
+
 }
