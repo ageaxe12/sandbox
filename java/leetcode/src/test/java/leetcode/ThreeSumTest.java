@@ -17,14 +17,13 @@ public class ThreeSumTest {
 	@Rule
 	public final ExpectedException exception = ExpectedException.none();
 
-	private Method method;
 	
 	private ThreeSum sumObject = new ThreeSum(); 
 
 	@Before
     public void setUp() throws NoSuchMethodException, SecurityException {
 
-    	  method = ThreeSum.class.getDeclaredMethod("sortedArray2", int[].class);
+    	  method = ThreeSum.class.getDeclaredMethod("programcreek", int[].class);
     	  //method.re
     }
 
