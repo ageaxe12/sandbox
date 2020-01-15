@@ -62,6 +62,10 @@ class ImmutableListNodeImpl<T> implements ImmutableListNode<T> {
 
 public class PrintImmutableLinkedListReverse {
 	public void printLinkedListInReverse(ImmutableListNode<Integer> node) {
+		if(node == null) {
+			return;
+		}
+		
 		if (null != node.getNext()) {
 			printLinkedListInReverse(node.getNext());
 		}
