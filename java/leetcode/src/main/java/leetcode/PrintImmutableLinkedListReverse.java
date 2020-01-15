@@ -41,7 +41,7 @@ class ImmutableListNodeImpl<T> implements ImmutableListNode<T> {
 		this.nextNode = next;
 	}
 
-	public ImmutableListNode<T> createImmutableList(List<T> list) {
+	public static <T> ImmutableListNode<T> createImmutableList(List<T> list) {
 
 		ImmutableListNodeImpl<T> startNode = null;
 		ImmutableListNodeImpl<T> lastNode = null;

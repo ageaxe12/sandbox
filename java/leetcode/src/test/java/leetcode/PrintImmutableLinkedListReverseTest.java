@@ -36,7 +36,7 @@ public class PrintImmutableLinkedListReverseTest {
 			System.out.print(MessageFormat.format("[{0}]-->", i));
 		}	
 		System.out.println("NULL");
-		ImmutableListNode<Integer> node = new ImmutableListNodeImpl<Integer>().createImmutableList(list);
+		ImmutableListNode<Integer> node = ImmutableListNodeImpl.<Integer>createImmutableList(list);
 		new PrintImmutableLinkedListReverse().printLinkedListInReverse(node);
 		System.out.println("NULL");
 	}
@@ -44,7 +44,7 @@ public class PrintImmutableLinkedListReverseTest {
 	@Test
 	public void sizeZeroTest() {
 		List<Integer> list = new ArrayList<Integer>(); 
-		ImmutableListNode<Integer> node = new ImmutableListNodeImpl<Integer>().createImmutableList(list);
+		ImmutableListNode<Integer> node = ImmutableListNodeImpl.<Integer>createImmutableList(list);
 		new PrintImmutableLinkedListReverse().printLinkedListInReverse(node);
 		System.out.println("NULL");
 	}
@@ -57,7 +57,7 @@ public class PrintImmutableLinkedListReverseTest {
 			System.out.print(MessageFormat.format("[{0}]-->", i));
 		}	
 		System.out.println("NULL");
-		ImmutableListNode<Integer> node = new ImmutableListNodeImpl<Integer>().createImmutableList(list);
+		ImmutableListNode<Integer> node = ImmutableListNodeImpl.<Integer>createImmutableList(list);
 		new PrintImmutableLinkedListReverse().printLinkedListInReverse(node);
 		System.out.println("NULL");
 	}
