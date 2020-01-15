@@ -20,6 +20,8 @@ public class ThreeSumTest {
 	
 	private ThreeSum sumObject = new ThreeSum(); 
 
+	private Method method;
+	
 	@Before
     public void setUp() throws NoSuchMethodException, SecurityException {
 

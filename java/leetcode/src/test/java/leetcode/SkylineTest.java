@@ -20,7 +20,7 @@ public class SkylineTest {
 	public void twoSizeTest() {
 		int [][] grid = {{2,5},{4,6}};
 		int output = skyline.maxIncreaseKeepingSkyline(grid);
-		assertEquals("Two Size Test",0, output);
+		assertEquals("Two Size Test",2, output);
 	} 
 
 	
@@ -28,7 +28,7 @@ public class SkylineTest {
 	public void threeSizeTest() {
 		int [][] grid = {{2,5,9},{12,4,6},{5,6,10}};
 		int output = skyline.maxIncreaseKeepingSkyline(grid);
-		assertEquals("Three Size Test",0, output);
+		assertEquals("Three Size Test",19, output);
 	} 
 
 	

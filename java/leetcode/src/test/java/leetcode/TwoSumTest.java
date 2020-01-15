@@ -2,10 +2,12 @@ package leetcode;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+@Ignore 
 public class TwoSumTest {
 
 	@Rule
