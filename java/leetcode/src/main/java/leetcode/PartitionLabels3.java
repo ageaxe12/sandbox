@@ -1,81 +1,53 @@
 package leetcode;
 
 import java.text.MessageFormat;
-import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class PartitionLabels3 {
-	
-	
+
 	public List<Integer> partitionLabels(String s) {
 		List<Integer> resultList = new ArrayList<>();
+		char[] charArr = s.toCharArray();
+		int[] positionArr = new int[26];
 
-		//Map<Character, Map.Entry<Integer,Integer>> charMatrix= new HashMap<>();
-		
-		List<Character>  uniqueSet = new ArrayList<>();
-		List<Integer>  startIndexList = new ArrayList<>();
-
-		List<Integer>  endIndexList = new ArrayList<>();
-		
-		char [] charArr = s.toCharArray();
-		//int uniqueSetIndex = 0;
-		for (int i = 0 ; i < charArr.length ; i++ ) {
-			Character currentChar = charArr[i];
-			
-			if (uniqueSet.contains(currentChar)) {
-				int index = uniqueSet.indexOf(currentChar);
-				endIndexList.set(index, i);
-				
-			}else {
-				uniqueSet.add(currentChar);
-				startIndexList.add(i);
-				endIndexList.add(i);
-				//uniqueSetIndex++;
-			}
+		for (int i = 0; i < charArr.length; i++) {
+			positionArr[charArr[i] - 'a'] = i;
 		}
+		int charLastPos = 0, partPos = 0, partLastPos = -1;
+		for (int i = 0; i < charArr.length; i++) {
+			charLastPos = positionArr[charArr[i] - 'a'];
 
-		int pIndex = -99;
-		int lastPindex = -1	;
-		
-		
-		for(int i = 0 ; i< uniqueSet.size(); i++) {
-
-			int charStartIndex = startIndexList.get(i);
-			int charEndIndex = endIndexList.get(i);
-			
-			if(i ==0) {
-				pIndex = charEndIndex; 
-			}else if (charStartIndex > pIndex) {
-				resultList.add(pIndex - lastPindex);
-				lastPindex = pIndex;
-				pIndex = charEndIndex;
+			if (i != 0 && i > partPos) {
+				resultList.add(partPos - partLastPos);
+				partLastPos = partPos;
+				partPos = charLastPos;
 				i--;
-			}else if (charEndIndex > pIndex) {
-				pIndex = charEndIndex;
+			} else if (charLastPos > partPos) {
+				partPos = charLastPos;
 			}
-		
 		}
-		resultList.add(charArr.length-lastPindex-1);
-		printResult(resultList ,s);
+
+		resultList.add(charArr.length- partLastPos-1);
+
+		//System.out.println(MessageFormat.format("Input Array {0} ", String.valueOf(charArr)));
+		//System.out.println(MessageFormat.format("Position Array {0}", Arrays. toString(positionArr)));
+
+		printResult(resultList, s);
 		return resultList;
-		
+
 	}
 
-	
-	
-	private void printResult(List<Integer> resultList ,String s) {
-		System.out.println("Input string : "+ s);
-		int startIndex = 0 ;
+	private void printResult(List<Integer> resultList, String s) {
+		System.out.println("Input string : " + s);
+		int startIndex = 0;
 		System.out.println(resultList);
 
 		for (Integer i : resultList) {
-			System.out.println(MessageFormat.format("{0} : {1}", i,s.substring(startIndex,startIndex+i)));
-			startIndex = startIndex+i;
+			System.out.println(MessageFormat.format("{0} : {1}", i, s.substring(startIndex, startIndex + i)));
+			startIndex = startIndex + i;
 		}
-		
 
 	}
 }
