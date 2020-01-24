@@ -1,10 +1,10 @@
 package leetcode;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Queue;
-import java.util.concurrent.ArrayBlockingQueue;
+import java.util.List;
 
 /**
  * https://leetcode.com/problems/reveal-cards-in-increasing-order/
@@ -13,31 +13,38 @@ import java.util.concurrent.ArrayBlockingQueue;
  *
  */
 public class RevealCardsInIncreasingOrder {
-	public Object[] deckRevealedIncreasing(int[] deck) {
+	public int[] deckRevealedIncreasing(int[] deck) {
 		Arrays.sort(deck);
-		
-
-		Queue<Integer> result = new ArrayBlockingQueue<Integer>(deck.length);
-		// List<Integer> listNum = new ArrayList<Integer>(deck.length);
-
-		for (int i =  deck.length-1 ;i >=0;i--) {
+		int[] result = new int[deck.length];
+		for (int i = deck.length - 1; i >= 0; i--) {
 			int num = deck[i];
-			if (result.isEmpty()) {
-				result.add(num);
-			}else {
-				this.pushPop(result);
-				result.add(num);
+			if (i == deck.length - 1  ) {
+				result[0] = num;
+			} else {
+				this.pushPopAdd(result, num,deck.length - i -2 );
 			}
-
 		}
 
-		System.out.println(MessageFormat.format("Sorted Array = {0} \n Result Array = {1}", Arrays.toString(deck),result));
-		return result.toArray();
+		System.out.println(
+				MessageFormat.format("Sorted Array = {0} \nResult Array = {1}", Arrays.toString(deck), Arrays.toString(result)));
+		return result;
 	}
 
-	private void pushPop(Queue<Integer> result) {
-		Integer last = result.poll();
-		result.add(last);
+	private void pushPopAdd(int[] result, int num,int lastResultIndex) {
+
+		// POP-->I
+
+		int popped = result[lastResultIndex];;
+		
+		//move all by 2
+		for (int j = lastResultIndex-1; j >= 0; j--) {
+			result[j+2] = result[j]; 
+		}
+		result[1] = popped;
+		
+		result[0] = num;
+
 	}
+
 
 }
