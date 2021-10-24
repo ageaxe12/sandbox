@@ -1,0 +1,2434 @@
+"Custom-b2bshoppingcartws-basic-rule","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+	String[] allowedGroup = [""b2bshoppingcartws""];
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	
+	if (allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} 
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.warn(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}
+"
+"Custom-disco-survey-Rule","import com.pingidentity.pa.sdk.http.ResponseBuilder; 
+String redirectUrl = ""https://www.cisco.vovici.com/se/2C85931E3D51852D""; exc?.setResponse(ResponseBuilder.found(redirectUrl).build()); pass();  anything()"
+"Custom-disco-yubikey-Rule","import com.pingidentity.pa.sdk.http.ResponseBuilder; 
+String redirectUrl = ""https://apps.na.collabserv.com/wikis/home?lang=en-us#!/wiki/Wf3f9ef9f329a_4bf2_99c3_27ddf791240b/page/How%20to%20Order%20Yubikey%20(US%20%26%20Canada)""; exc?.setResponse(ResponseBuilder.found(redirectUrl).build()); pass();  anything()"
+"Custom-crts-prod-basic-auth-groovy","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [];
+
+	String[] allowedGroup = [""mdm-orgM.endpoint.consumers""];
+    
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	if (allowedUsr.length == 0 && allowedGroup.length == 0) {
+		exc?.log.debug(""No Authorization Rule for user"");
+		authorized = true;
+	} else if (allowedUsr.length > 0 && allowedGroup.length == 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length == 0 && allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length > 0 && allowedGroup.length > 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+		if (!authorized) {
+			for (String entity : allowedGroup) {
+				if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+					exc?.log.debug(""Group authorizarion rule satisfied for user"");
+					authorized = true;
+					break;
+				}
+			}
+		}
+
+	}
+
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-territoryapp-prod-basic-auth-groovy","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [];
+
+	String[] allowedGroup = [""mdm-territory.endpoint.consumers""];
+    
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	if (allowedUsr.length == 0 && allowedGroup.length == 0) {
+		exc?.log.debug(""No Authorization Rule for user"");
+		authorized = true;
+	} else if (allowedUsr.length > 0 && allowedGroup.length == 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length == 0 && allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length > 0 && allowedGroup.length > 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+		if (!authorized) {
+			for (String entity : allowedGroup) {
+				if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+					exc?.log.debug(""Group authorizarion rule satisfied for user"");
+					authorized = true;
+					break;
+				}
+			}
+		}
+
+	}
+
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-Anon-SSOSession","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+
+sessioncookievalue = exc?.request?.header?.getFirstCookieValue(""CSPROD.CDCprod"");
+if (sessioncookievalue == null)
+{
+  cookievalue = exc?.request?.header?.getFirstCookieValue(""wamsessiontracker"");
+  
+  if (cookievalue != null)
+  {
+    String fdkHost = exc?.request?.header?.getHost()
+    String fdkUri= exc?.request?.uri
+    String redirectUrl = ""https://""+fdkHost+""/c/login/index.html?referer="" + fdkUri
+    exc?.setResponse(ResponseBuilder.found(redirectUrl).build());
+    pass();
+   }else {
+	def header = exc?.request?.header;
+	header?.removeFields(""AUTH_USER"");
+	header?.add(""AUTH_USER"", ""oam-anonymous.gen"");
+	pass();
+  }
+
+}
+anything()"
+"sds-prod-session-tracker","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+
+sessioncookievalue = exc?.request?.header?.getFirstCookieValue(""CSPROD.SCMprod"");
+if (sessioncookievalue == null)
+{
+	cookievalue = exc?.request?.header?.getFirstCookieValue(""wamsessiontracker"");
+  
+	if (cookievalue != null)
+	{
+		String host = exc?.request?.header?.getHost()
+		String uri= exc?.request?.uri
+		String redirectUrl = ""https://""+ host +""/login/index.html?referer="" + uri
+		exc?.setResponse(ResponseBuilder.found(redirectUrl).build());
+		pass();
+	}
+}
+anything()
+
+"
+"Custom-pgtmvapp-prod-basic-auth-groovy","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [];
+
+	String[] allowedGroup = [""mdm-pgtmvM.endpoint.consumers""];
+    
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	if (allowedUsr.length == 0 && allowedGroup.length == 0) {
+		exc?.log.debug(""No Authorization Rule for user"");
+		authorized = true;
+	} else if (allowedUsr.length > 0 && allowedGroup.length == 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length == 0 && allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length > 0 && allowedGroup.length > 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+		if (!authorized) {
+			for (String entity : allowedGroup) {
+				if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+					exc?.log.debug(""Group authorizarion rule satisfied for user"");
+					authorized = true;
+					break;
+				}
+			}
+		}
+
+	}
+
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-Anon-SSOSession-http","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+
+sessioncookievalue = exc?.request?.header?.getFirstCookieValue(""CSPROD.CDCprod-http"");
+if (sessioncookievalue == null)
+{
+  cookievalue = exc?.request?.header?.getFirstCookieValue(""wamsessiontracker"");
+  
+  if (cookievalue != null)
+  {
+    String fdkHost = exc?.request?.header?.getHost()
+    String fdkUri= exc?.request?.uri
+    String redirectUrl = ""https://""+fdkHost+""/c/login/index.html?referer="" + fdkUri
+    exc?.setResponse(ResponseBuilder.found(redirectUrl).build());
+    pass();
+   }else {
+	def header = exc?.request?.header;
+	header?.removeFields(""AUTH_USER"");
+	header?.add(""AUTH_USER"", ""oam-anonymous.gen"");
+	pass();
+  }
+
+}
+anything()"
+"Custom-cpam-prod-basic-auth-groovy","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [];
+
+	String[] allowedGroup = [""mdm-cpamM.endpoint.consumers"", ""mdm-cpamS.endpoint.consumers""];
+    
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	if (allowedUsr.length == 0 && allowedGroup.length == 0) {
+		exc?.log.debug(""No Authorization Rule for user"");
+		authorized = true;
+	} else if (allowedUsr.length > 0 && allowedGroup.length == 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length == 0 && allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length > 0 && allowedGroup.length > 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+		if (!authorized) {
+			for (String entity : allowedGroup) {
+				if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+					exc?.log.debug(""Group authorizarion rule satisfied for user"");
+					authorized = true;
+					break;
+				}
+			}
+		}
+
+	}
+
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-SessionTracker-JasperConnectPROD","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+
+cookievalue = exc?.request?.header?.getFirstCookieValue(""wamsessiontracker"");
+
+if (cookievalue != null && !cookievalue.isEmpty())
+{
+String jconnHost = exc?.request?.header?.getHost()
+String redirectUrl = ""https://""+jconnHost+""/portal.html""
+exc?.setResponse(ResponseBuilder.found(redirectUrl).build());
+pass();
+}
+anything();"
+"Custom-search-session-tracker","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.URLEncoder;
+
+sessioncookievalue = exc?.request?.header?.getFirstCookieValue(""CSPROD.CAEAXprod"");
+
+if (sessioncookievalue == null)
+{
+  cookievalue = exc?.request?.header?.getFirstCookieValue(""wamsessiontracker"");
+  
+  
+  
+  if (cookievalue != null && !cookievalue.isEmpty())
+  {	
+    String searchHost = exc?.request?.header?.getHost()
+    String searchUri= URLEncoder.encode(exc?.request?.uri,""UTF-8"")
+	String redirectUrl = ""https://""+searchHost+""/login?ref="" + searchUri;
+    exc?.setResponse(ResponseBuilder.found(redirectUrl).build());
+    pass();
+   }
+  
+}
+anything()"
+"smart404-session-tracker","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+
+sessioncookievalue = exc?.request?.header?.getFirstCookieValue(""CSPROD.CAEAXprod"");
+
+if (sessioncookievalue == null)
+{
+  cookievalue = exc?.request?.header?.getFirstCookieValue(""wamsessiontracker"");
+  
+  
+  
+  if (cookievalue != null && !cookievalue.isEmpty())
+  {	
+    String smartHost = exc?.request?.header?.getHost()
+    String smartUri= exc?.request?.uri
+	String redirectUrl = ""https://""+smartHost+""/esps/login?ref="" + smartUri;
+    exc?.setResponse(ResponseBuilder.found(redirectUrl).build());
+    pass();
+   }
+  
+}
+anything()"
+"Custom-orgsearchapp-prod-basic-auth-groovy","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [];
+
+	String[] allowedGroup = [""mdm-orgS.endpoint.consumers""];
+    
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	if (allowedUsr.length == 0 && allowedGroup.length == 0) {
+		exc?.log.debug(""No Authorization Rule for user"");
+		authorized = true;
+	} else if (allowedUsr.length > 0 && allowedGroup.length == 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length == 0 && allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length > 0 && allowedGroup.length > 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+		if (!authorized) {
+			for (String entity : allowedGroup) {
+				if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+					exc?.log.debug(""Group authorizarion rule satisfied for user"");
+					authorized = true;
+					break;
+				}
+			}
+		}
+
+	}
+
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-disco-case-Rule","import com.pingidentity.pa.sdk.http.ResponseBuilder; 
+String redirectUrl = ""https://cisco.service-now.com/sp?id=search&bt=t&q=*&filter_string=serviceoffering:%27Multi-Factor%20Authentication%20-%20MFA%27""; exc?.setResponse(ResponseBuilder.found(redirectUrl).build()); pass();  anything()"
+"CAEAIprod-API-dcpfnd.cloudapps-dcpfnd-dcpfnd_AUTH_USER","def header = exc?.request?.header;
+header?.add(""AUTH_USER"", ""null"");"
+"Custom-pgtmvsearchapp-prod-basic-auth-groovy","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [];
+
+	String[] allowedGroup = [""mdm-pgtmvS.endpoint.consumers""];
+    
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	if (allowedUsr.length == 0 && allowedGroup.length == 0) {
+		exc?.log.debug(""No Authorization Rule for user"");
+		authorized = true;
+	} else if (allowedUsr.length > 0 && allowedGroup.length == 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length == 0 && allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length > 0 && allowedGroup.length > 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+		if (!authorized) {
+			for (String entity : allowedGroup) {
+				if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+					exc?.log.debug(""Group authorizarion rule satisfied for user"");
+					authorized = true;
+					break;
+				}
+			}
+		}
+
+	}
+
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-personpartyapp-prod-basic-auth-groovy","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [];
+
+	String[] allowedGroup = [""mdm-personM.endpoint.consumers""];
+    
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	if (allowedUsr.length == 0 && allowedGroup.length == 0) {
+		exc?.log.debug(""No Authorization Rule for user"");
+		authorized = true;
+	} else if (allowedUsr.length > 0 && allowedGroup.length == 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length == 0 && allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length > 0 && allowedGroup.length > 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+		if (!authorized) {
+			for (String entity : allowedGroup) {
+				if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+					exc?.log.debug(""Group authorizarion rule satisfied for user"");
+					authorized = true;
+					break;
+				}
+			}
+		}
+
+	}
+
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-disco-pilot-Rule","import com.pingidentity.pa.sdk.http.ResponseBuilder; 
+String redirectUrl = ""https://disco.cisco.com/pilot""; exc?.setResponse(ResponseBuilder.found(redirectUrl).build()); pass();  anything()"
+"Custom-icwcfgsrvc-basic-prod-rule","
+import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+	String[] allowedGroup = [""icw-cfg-srvc""];
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	
+	if (allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} 
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.warn(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-ppsearchapp-prod-basic-auth-groovy","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [];
+
+	String[] allowedGroup = [""mdm-personS.endpoint.consumers""];
+    
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	if (allowedUsr.length == 0 && allowedGroup.length == 0) {
+		exc?.log.debug(""No Authorization Rule for user"");
+		authorized = true;
+	} else if (allowedUsr.length > 0 && allowedGroup.length == 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length == 0 && allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length > 0 && allowedGroup.length > 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+		if (!authorized) {
+			for (String entity : allowedGroup) {
+				if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+					exc?.log.debug(""Group authorizarion rule satisfied for user"");
+					authorized = true;
+					break;
+				}
+			}
+		}
+
+	}
+
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-ccwcfgrsrvc-basic--prod-rule","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+	String[] allowedGroup = [""ccw-cfg-rsrvc""];
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	
+	if (allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} 
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.warn(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}
+"
+"Custom-disco-video-Rule","import com.pingidentity.pa.sdk.http.ResponseBuilder; 
+String redirectUrl = ""https://duosecurity.wistia.com/medias/lnxvt0tpxn""; exc?.setResponse(ResponseBuilder.found(redirectUrl).build()); pass();  anything()"
+"Custom-TrackActiveSession-WEMAuthor","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+
+sessioncookievalue = exc?.request?.header?.getFirstCookieValue(""CSPROD.WEMAUTHORprod"");
+if (sessioncookievalue == null)
+{
+  cookievalue = exc?.request?.header?.getFirstCookieValue(""wamsessiontracker"");
+  
+  if (cookievalue != null)
+  {
+    String fdkHost = exc?.request?.header?.getHost()
+    String fdkUri= exc?.request?.uri
+    String redirectUrl = ""https://""+fdkHost+""/c/login/index.html?referer="" + fdkUri
+    exc?.setResponse(ResponseBuilder.found(redirectUrl).build());
+    pass();
+   }else {
+	def header = exc?.request?.header;
+	header?.removeFields(""AUTH_USER"");
+	header?.add(""AUTH_USER"", ""oam-anonymous.gen"");
+	pass();
+  }
+
+}
+anything()"
+"Custom-crteav-prod-basic-auth-groovy","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+exc?.log.debug(""Authorization header received = "" + authorization);
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [];
+
+	String[] allowedGroup = [""mdm-eav.endpoint.consumers""];
+    
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	if (allowedUsr.length == 0 && allowedGroup.length == 0) {
+		exc?.log.debug(""No Authorization Rule for user"");
+		authorized = true;
+	} else if (allowedUsr.length > 0 && allowedGroup.length == 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length == 0 && allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length > 0 && allowedGroup.length > 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+		if (!authorized) {
+			for (String entity : allowedGroup) {
+				if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+					exc?.log.debug(""Group authorizarion rule satisfied for user"");
+					authorized = true;
+					break;
+				}
+			}
+		}
+
+	}
+
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-b2bdart-basic-rule","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [""ICW_SELL_PDR.gen"",""b2bdart.gen""];
+
+
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+
+	boolean authorized = false;
+	for (String entity : allowedUsr) {
+		if (requestUser.equals(entity)) {
+			exc?.log.debug(""UID authorizarion rule satisfied for user"");
+
+			authorized = true;
+			break;
+		}
+	}
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.warn(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}
+"
+"Custom-disco-ec-Rule","import com.pingidentity.pa.sdk.http.ResponseBuilder; 
+String redirectUrl = ""https://apps.na.collabserv.com/communities/service/html/communitystart?communityUuid=f3225259-6a7a-4e4b-b73a-412e619ba212""; exc?.setResponse(ResponseBuilder.found(redirectUrl).build()); pass();  anything()"
+"Custom-vlaemdme-prod-basic-auth-groovy","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [];
+
+	String[] allowedGroup = [""mdm-mdme.endpoint.consumers""];
+    
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	if (allowedUsr.length == 0 && allowedGroup.length == 0) {
+		exc?.log.debug(""No Authorization Rule for user"");
+		authorized = true;
+	} else if (allowedUsr.length > 0 && allowedGroup.length == 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length == 0 && allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length > 0 && allowedGroup.length > 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+		if (!authorized) {
+			for (String entity : allowedGroup) {
+				if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+					exc?.log.debug(""Group authorizarion rule satisfied for user"");
+					authorized = true;
+					break;
+				}
+			}
+		}
+
+	}
+
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-disco-cec-Rule","import com.pingidentity.pa.sdk.http.ResponseBuilder; String redirectUrl = ""https://cloudsso.cisco.com/idp/startSSO.ping?PartnerSpId=DUO_SP_VPN_CIDR""; exc?.setResponse(ResponseBuilder.found(redirectUrl).build()); pass(); anything()"
+"Custom-csbilws-basic--prod-rule","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [""csbilws.gen""];
+
+
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+
+	boolean authorized = false;
+	for (String entity : allowedUsr) {
+		if (requestUser.equals(entity)) {
+			exc?.log.debug(""UID authorizarion rule satisfied for user"");
+
+			authorized = true;
+			break;
+		}
+	}
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-sds-session-tracker-rule","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+
+sessioncookievalue = exc?.request?.header?.getFirstCookieValue(""CSPROD.CAEXprod"");
+
+if (sessioncookievalue == null) {
+	cookievalue = exc?.request?.header?.getFirstCookieValue(""wamsessiontracker"");
+
+	if (cookievalue != null && !cookievalue.isEmpty()) {
+		//User Already Looged-in to other host	
+		String sdsHost = exc?.request?.header?.getHost()
+		String sdsUri= exc?.request?.uri
+		String redirectUrl = ""https://""+sdsHost+""/login/index.html?referer="" + sdsUri;
+		exc?.setResponse(ResponseBuilder.found(redirectUrl).build());
+		pass();
+    }
+	
+}
+anything()"
+"Custom-WSG-response-header-rule","import com.pingidentity.pa.sdk.http.ResponseBuilder; 
+import com.pingidentity.pa.sdk.http.Response; 
+import com.pingidentity.pa.sdk.http.Headers;
+
+ResponseBuilder responseB =  ResponseBuilder.ok()
+
+if(null != exc?.identity){
+	//Request is having Bearer AT 
+	String myclientID = exc?.identity?.OAuthTokenMetadata?.getClientId();
+	Date expiresIn = exc?.identity?.OAuthTokenMetadata?.getExpiresAt();
+	String uid = exc?.identity?.getSubject();
+
+	if (null != uid){
+		responseB.header(""wam_uid"",""""+uid);
+	}
+	if (null != myclientID){
+		responseB.header(""wam_client_id"",""""+myclientID);
+	}else{
+		responseB =  ResponseBuilder.unauthorizedWithoutBody();
+		responseB.header(""auth_user"",""unauthorized"")
+	}
+	if (null != expiresIn){
+		responseB.header(""wam_expires_at"",""""+expiresIn.getTime());
+	}
+	
+}else{
+	//Request is having Basic Token
+	
+	Headers myheaders = exc?.request?.getHeaders();
+
+	String uid = myheaders?.getFirstValue(""auth_user"");
+		
+	if (null != uid){
+		responseB.header(""wam_uid"",""""+uid);
+	}else{
+		responseB =  ResponseBuilder.unauthorizedWithoutBody();
+		responseB.header(""auth_user"",""unauthorized"")
+	}
+}
+
+exc?.setResponse(responseB.build());
+anything();"
+"Custom-download-session-tracker-rule","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+
+sessioncookievalue = exc?.request?.header?.getFirstCookieValue(""CSPROD.CAEAXprod"");
+
+if (sessioncookievalue == null) {
+	cookievalue = exc?.request?.header?.getFirstCookieValue(""wamsessiontracker"");
+
+	if (cookievalue != null && !cookievalue.isEmpty()) {
+		//User Already Looged-in to other host	
+		String sdsHost = exc?.request?.header?.getHost()
+		String sdsUri= exc?.request?.uri
+		String redirectUrl = ""https://""+sdsHost+""/login/index.html?referer="" + sdsUri;
+		exc?.setResponse(ResponseBuilder.found(redirectUrl).build());
+		pass();
+    }
+	
+}
+anything()"
+"Test-basic-auth-groovy","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.info(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.info(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [];
+
+	String[] allowedGroup = [""web-security-team""];
+    
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	if (allowedUsr.length == 0 && allowedGroup.length == 0) {
+		exc?.log.debug(""No Authorization Rule for user"");
+		authorized = true;
+	} else if (allowedUsr.length > 0 && allowedGroup.length == 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length == 0 && allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length > 0 && allowedGroup.length > 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+		if (!authorized) {
+			for (String entity : allowedGroup) {
+				if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+					exc?.log.debug(""Group authorizarion rule satisfied for user"");
+					authorized = true;
+					break;
+				}
+			}
+		}
+
+	}
+
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}
+"
+"BENCHprod-Rule","if (exc?.identity != null) {
+    pass();
+}else{
+    fail();
+}
+"
+"Custom-disco-Help-Rule","import com.pingidentity.pa.sdk.http.ResponseBuilder; 
+String redirectUrl = ""https://disco.cisco.com/DuoMultiFactorAuthentication.pdf""; exc?.setResponse(ResponseBuilder.found(redirectUrl).build()); pass();  anything()"
+"Custom-disco-lazyegg-Rule","import com.pingidentity.pa.sdk.http.ResponseBuilder; 
+String redirectUrl = ""https://sso.cisco.com/autho/apps/lazyegg/lazyegg.html""; exc?.setResponse(ResponseBuilder.found(redirectUrl).build()); pass();  anything()"
+"Custom-b2border-basic-rule","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [""masheryproxy.gen"",""CCW_NOTIFICATION.gen""];
+
+
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+
+	boolean authorized = false;
+	for (String entity : allowedUsr) {
+		if (requestUser.equals(entity)) {
+			exc?.log.debug(""UID authorizarion rule satisfied for user"");
+
+			authorized = true;
+			break;
+		}
+	}
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.warn(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}
+
+"
+"Custom-icwcfgren-basic-prod-rule","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+exc?.log.debug(""Authorization header received = "" + authorization);
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+	String[] allowedGroup = [""icw-cfg-ren""];
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	
+	if (allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} 
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.warn(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}
+"
+"Custom-CDC-PPS-CPS-VPS-SSO","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Cookie Replay rule starts ..."");
+
+obssoCookie = exc?.request?.header?.getFirstCookieValue(""ObSSOCookie"");
+
+
+if (null != obssoCookie && obssoCookie != ""loggedoutcontinue"") {
+		exc?.log.debug(""OBSSO Cookie Found in request "");
+		URL url = new URL(""https://sso.cisco.com/autho/apps/sso/getssosession_PA.html"");
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setRequestProperty(""Cookie"", ""ObSSOCookie=""+obssoCookie);
+		
+		
+		
+		List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+	
+		exc?.log.debug(""Received user ...""+cookieList);
+  
+		Pattern cookiePattern = Pattern.compile(""=(.*);"");
+	
+		String userid = null;
+		for (String entry : cookieList) {
+			if(null != entry && entry.contains(""LoggedInUser"")) {
+              Matcher matcher = cookiePattern.matcher(entry);
+              if(matcher.find()){
+			  	userid = matcher.group(1);
+              }
+			}
+		}	
+  		exc?.log.debug(""Received user ...""+userid);
+		if(userid != null ){
+			def header = exc?.request?.header;
+			header?.removeFields(""uid"");                                 
+			header?.removeFields(""REMOTE_USER"");   
+			header?.removeFields(""REMOTE-USER"");
+			header?.removeFields(""AUTH_USER"");
+			header?.add(""uid"", """"+userid);
+			header?.add(""AUTH_USER"", """"+userid);                        
+			header?.add(""REMOTE_USER"", """"+userid);
+			header?.add(""REMOTE-USER"", """"+userid);
+			// header?.add(""uid"", """"+uid);             
+		}else{
+			ResponseBuilder responseB =  ResponseBuilder.unauthorizedWithoutBody();
+			responseB.header(""auth_user"",""unauthorized"")
+			exc?.setResponse(responseB.build());
+		}  
+}else{
+	ResponseBuilder responseB =  ResponseBuilder.unauthorizedWithoutBody();
+	responseB.header(""auth_user"",""unauthorized"")
+	exc?.setResponse(responseB.build());
+}
+
+anything();"
+"Custom-disco-forum-Rule","import com.pingidentity.pa.sdk.http.ResponseBuilder; 
+String redirectUrl = ""https://apps.na.collabserv.com/forums/html/forum?id=104e4851-2788-42a9-9b8a-39615208c1b5&ps=25""; exc?.setResponse(ResponseBuilder.found(redirectUrl).build()); pass();  anything()"
+"sds-prod-session-tracker-with-host-update","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+
+sessioncookievalue = exc?.request?.header?.getFirstCookieValue(""CSPROD.SCMprod"");
+if (sessioncookievalue == null)
+{
+  cookievalue = exc?.request?.header?.getFirstCookieValue(""wamsessiontracker"");
+  
+  if (cookievalue != null)
+  {	
+    String sdsHost = exc?.request?.header?.getHost()
+    String sdsUri= exc?.request?.uri
+	String redirectUrl = ""https://""+sdsHost+""/login/index.html?referer="" + sdsUri
+    exc?.setResponse(ResponseBuilder.found(redirectUrl).build());
+    pass();
+   }
+   else
+   {
+	 String sdsHost = exc?.request?.header?.getHost()
+	 if(sdsHost?.contains(""software""))
+	 {
+		 sdsHost = sdsHost?.replace(""software"",""sds-prod"");
+		 exc?.request?.header?.setHost(sdsHost);  		 
+	 }
+   }
+}
+else
+{
+	 String sdsHost = exc?.request?.header?.getHost()
+	 if(sdsHost?.contains(""software""))
+	 {
+		 sdsHost = sdsHost?.replace(""software"",""sds-prod"");
+		 exc?.request?.header?.setHost(sdsHost);  		 
+	 }
+}
+anything()"
+"sds-prod-host-rewrite-rule","exc?.request?.header?.setHost(""sds-prod.cisco.com""); 
+anything()"
+"Custom-sbp-basic-auth-groovy","import com.pingidentity.pa.sdk.http.ResponseBuilder;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+exc?.log.debug(""OAM Basic auth rule starts ..."");
+
+
+String authorization = exc?.request?.header?.getAuthorization();
+
+
+if (null != authorization ) {
+	exc?.log.debug(""Validating authorization header with OAM"");
+	URL url = new URL(""https://sso-prod2.cisco.com/autho/apps/sso/getssosession_PA_group.html"");
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setRequestProperty(""Authorization"", authorization);
+
+	List<String> cookieList = conn.getHeaderFields().get(""Set-Cookie"");
+
+	exc?.log.debug(""Cookie received from OAM = "" + cookieList);
+
+	Pattern cookiePattern = Pattern.compile(""=(.*);"");
+
+	String requestUser = null;
+
+	String requestUserGroups = null;
+	for (String entry : cookieList) {
+		if(null != entry && entry.contains(""LoggedInUser"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user from OAM
+				requestUser = matcher.group(1);
+			}
+		} else if(null != entry && entry.contains(""User_Group"")) {
+			Matcher matcher = cookiePattern.matcher(entry);
+			if(matcher.find()){
+				//Retrieved user group from OAM
+				requestUserGroups = matcher.group(1);
+			}
+		}
+	}
+
+	if(requestUser != null ){
+
+		// No User found in OAM response ,
+		not(anything());
+	}
+
+	exc?.log.debug(""Received OAM User = ""+requestUser);
+	exc?.log.debug(""Received OAM UserGroups = ""+requestUserGroups);
+
+
+	String[] allowedUsr = [];
+
+	String[] allowedGroup = [""sbp_api_services""];
+    
+	exc?.log.debug(""Processing authorization rule for User List =""+allowedUsr);
+
+	exc?.log.debug(""Processing authorization rule for User Group List =""+allowedGroup);
+
+	boolean authorized = false;
+	if (allowedUsr.length == 0 && allowedGroup.length == 0) {
+		exc?.log.debug(""No Authorization Rule for user"");
+		authorized = true;
+	} else if (allowedUsr.length > 0 && allowedGroup.length == 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length == 0 && allowedGroup.length > 0) {
+		for (String entity : allowedGroup) {
+			if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+				exc?.log.debug(""Group authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+	} else if (allowedUsr.length > 0 && allowedGroup.length > 0) {
+		for (String entity : allowedUsr) {
+			if (requestUser.equals(entity)) {
+				exc?.log.debug(""UID authorizarion rule satisfied for user"");
+				authorized = true;
+				break;
+			}
+		}
+		if (!authorized) {
+			for (String entity : allowedGroup) {
+				if (requestUserGroups != null && requestUserGroups.contains(entity)) {
+					exc?.log.debug(""Group authorizarion rule satisfied for user"");
+					authorized = true;
+					break;
+				}
+			}
+		}
+
+	}
+
+
+	if(!authorized) {
+		exc?.log.warn(""User not is authorized, access denied"");
+		not(anything());
+	}else {
+		def header = exc?.request?.header;
+		header?.removeFields(""uid"");
+		header?.removeFields(""REMOTE_USER"");
+		header?.removeFields(""AUTH_USER"");
+		header?.add(""AUTH_USER"", """"+requestUser);
+		header?.add(""REMOTE_USER"", """"+requestUser);
+		exc?.log.debug(""Response header set for request"");
+		anything();
+	}
+}else{
+	exc?.log.warn(""No Authorization header present is request , access denied"");
+	not(anything());
+}"
+"Custom-disco-teams-Rule","import com.pingidentity.pa.sdk.http.ResponseBuilder; 
+String redirectUrl = ""https://eurl.io/#HJE00Lsp7""; exc?.setResponse(ResponseBuilder.found(redirectUrl).build()); pass();  anything()"

@@ -1,0 +1,2866 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "eiamApp",
+      "description": null,
+      "hostname": "wam-prod2.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        104
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 2,
+      "name": "BENCHprod",
+      "description": "TheBench platform",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        2
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 3,
+      "name": "BENCHAPP13prod",
+      "description": "BENCHAPP13prod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        3
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 4,
+      "name": "BENCHAPP14prod",
+      "description": "BENCHAPP14prod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        4
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 5,
+      "name": "BENCHAPP15prod",
+      "description": "BENCHAPP15prod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        5
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 6,
+      "name": "BENCHAPP16prod",
+      "description": "BENCHAPP16prod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        6
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 7,
+      "name": "BENCHAPP17prod",
+      "description": "BENCHAPP17prod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        7
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 8,
+      "name": "BENCHAPP8prod",
+      "description": "BENCHAPP8prod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        8
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 9,
+      "name": "PMT",
+      "description": "PMT",
+      "hostname": "wam.cisco.com",
+      "port": 443,
+      "sharedSecretIds": [
+        9
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 10,
+      "name": "BENCHAPP12prod",
+      "description": "BENCHAPP12prod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        10
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 11,
+      "name": "TestOauth",
+      "description": "Oauth Testing",
+      "hostname": "wam.cisco.com",
+      "port": 443,
+      "sharedSecretIds": [
+        11
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 12,
+      "name": "SLATAPP4prod",
+      "description": "SLATAPP4prod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        12,
+        13
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 13,
+      "name": "GISONECLICKprod",
+      "description": "Agent for gis-oneclick application on Apache2.2 RHEL6.6",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        14
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 14,
+      "name": "PMTprd",
+      "description": null,
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        15
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 15,
+      "name": "CSPGprod",
+      "description": "Sanity Dashboard for CSPG ",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        16
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 16,
+      "name": "HATCHprod",
+      "description": "TheHatch",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        17
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 17,
+      "name": "IPROCprod",
+      "description": "agent for IPROCprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        18
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 18,
+      "name": "ISEDashboardprd",
+      "description": "aons-build6.cisco.com",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        19
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 19,
+      "name": "DFCprod",
+      "description": "Agent on Win/IIS for Design for Cloud Application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        20
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 20,
+      "name": "PINGACCESSINTERNALAPPprod",
+      "description": "agent for PINGACCESSINTERNALAPPprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        21
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 21,
+      "name": "PAINTERNALAPPprod",
+      "description": "agent for PAINTERNALAPPprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        22
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 22,
+      "name": "SBGprod",
+      "description": "agent for SBGprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        23,
+        24,
+        26
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 23,
+      "name": "SPARKAIprod",
+      "description": "agent for SPARKAIprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        25
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 24,
+      "name": "BKUPDASHprod",
+      "description": "agent for BKUPDASHprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        27
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 25,
+      "name": "IBITSprod",
+      "description": "agent for IBITSprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        28
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 26,
+      "name": "BMWprd",
+      "description": "agent for BMWprd",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        30
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 27,
+      "name": "DataScience",
+      "description": "DataScience Prod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        31
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 28,
+      "name": "DISTIprod",
+      "description": "DISTIprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        32
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 29,
+      "name": "FLIP2FLEXprd",
+      "description": "Agent for FLIP2FLEXprd",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        33
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 30,
+      "name": "DGCprod",
+      "description": "Data_Governance_Center",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        34
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 31,
+      "name": "DCEXRAYprod",
+      "description": "",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        35
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 32,
+      "name": "MULTIPLIEREFFECTprod",
+      "description": "For Multiply Diversity app on IIS 8.5/Windows 2012",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        36
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 33,
+      "name": "SECURITYHUBprod",
+      "description": null,
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        37
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 34,
+      "name": "SUPERNOVAprd",
+      "description": "Agent for Supernova PROD",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        38
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 35,
+      "name": "UCSprod",
+      "description": null,
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        42
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 36,
+      "name": "AQAprod",
+      "description": "Agent for DISP",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        40
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 37,
+      "name": "WIKIprod",
+      "description": "Wiki Agent",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        41
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 38,
+      "name": "APJEVPprod",
+      "description": "For apj evp app on IIS/Windows",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        43
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 39,
+      "name": "ICAMprod",
+      "description": "Agent for ICAM",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        44
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 40,
+      "name": "NEXTGENCRprod",
+      "description": "NextGenCR application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        51
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 41,
+      "name": "CLSprod",
+      "description": "Agent For Cisco Learning System Production environment. \nCR# = CHG0047143 ",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        52
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 42,
+      "name": "EMPROLLprod",
+      "description": "This agent is for pay roll apps on IIS",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        54
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 43,
+      "name": "FLOWAPPprod",
+      "description": "this agent is for app hosted on apach 2.4",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        57,
+        58
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 44,
+      "name": "CAEAIprod",
+      "description": "CAE 3 platfrom agent",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        60
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 45,
+      "name": "CAEAXprod",
+      "description": "CAE 3 platfrom agent for external app",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        61
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 46,
+      "name": "DOCCENTRALGCprod",
+      "description": "agent for DOCCENTRALGCprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        62
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 47,
+      "name": "PRIMEINSIGHTprod",
+      "description": "Agent for Pi-Metrics Production Environment.",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        63
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 48,
+      "name": "CEPprod",
+      "description": "agent for CEPprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        64
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 49,
+      "name": "DRVprod",
+      "description": "DRVprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        65,
+        66
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 50,
+      "name": "AIXprod",
+      "description": "Agent For Actionable Insights Exchange (AIX). #CR : CHG0056153",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        67
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 51,
+      "name": "UCITprod",
+      "description": "Agent for UCIT",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        69
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 52,
+      "name": "AGILEPLMprod",
+      "description": "Agent for Agile PLM PROD environment\n ( AGLPRD / PDMPRD)\nERMO Release 06/10/2018",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        70
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 53,
+      "name": "SCMprod",
+      "description": "Agent setup for mycase app",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        72
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 54,
+      "name": "MISERVICESprod",
+      "description": "agent for MISERVICESprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        73
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 55,
+      "name": "ISPAPPprod",
+      "description": "ISPAPPprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        74
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 56,
+      "name": "NXTGENSFOprod",
+      "description": "Agent for NXTGENSFOprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        75
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 57,
+      "name": "VOLTRONprod",
+      "description": "IIS 8.5 / Win Server 2012 ",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        76
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 58,
+      "name": "TSMAPprod",
+      "description": "Agent profile for TSMAP Prod environment.",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        77
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 59,
+      "name": "OTMprod",
+      "description": "Agent for OTM",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        79
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 60,
+      "name": "MySSO",
+      "description": "MySSO",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        80,
+        81
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 18,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "caab58ce966f45f60c0a690051d4f49fa5e31a39"
+      }
+    },
+    {
+      "id": 61,
+      "name": "FOCALPOINTprod",
+      "description": "FOCALPOINTprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        82
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 62,
+      "name": "vmpa.cisco.com",
+      "description": "Test agent for vmpa.cisco.com",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        83
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 63,
+      "name": "OBIEEprod",
+      "description": "agent for OBIEEprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        84
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 64,
+      "name": "IREPORTprod",
+      "description": "agent for IREPORTprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        85
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 65,
+      "name": "MESBprod",
+      "description": "Agent for MESBprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        86
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 66,
+      "name": "CONCSOprod",
+      "description": "agent for CONCSOprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        87
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 67,
+      "name": "REDMINEprod",
+      "description": "agent for REDMINEprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        88
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 68,
+      "name": "CMWprod",
+      "description": "Agent for CMW PROD environment.",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        89
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 69,
+      "name": "PRIMAVERAprod",
+      "description": "Agent for Primavera PROD ( SPMPRD ) environment.",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        91
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 70,
+      "name": "IDMXEBSprod",
+      "description": "Agent for IDMXEBSprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        92
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 71,
+      "name": "IDMIEBSprod",
+      "description": "Agent for IDMIEBSprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        93
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 72,
+      "name": "OIMprod",
+      "description": "Agent for OIM PROD environment",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        94
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 73,
+      "name": "CAASAprod",
+      "description": "Agent for CAASAprod Application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        95
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 74,
+      "name": "FAQMSprod",
+      "description": "Agent for FAQMS production environment [ pqmprd ]",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        96
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 75,
+      "name": "CESBprod",
+      "description": "Agent for CESB Prod environment",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        97
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 76,
+      "name": "EPORTAL2prod",
+      "description": "Agent for EPORTAL2prod Application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        98
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 77,
+      "name": "CNAprod",
+      "description": "agent for CNAprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        99
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 78,
+      "name": "LYSWIKIATTCHprod",
+      "description": "agent for LYSWIKIATTCHprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        100
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 79,
+      "name": "CDCprod",
+      "description": "Agent Cisco.com",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        101
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 80,
+      "name": "DFAprod",
+      "description": "agent for DFAprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        102
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 81,
+      "name": "BREprod",
+      "description": "agent for BREprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        103
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 82,
+      "name": "testagent",
+      "description": null,
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        105
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 83,
+      "name": "IAMSTATUS2prod",
+      "description": "agent for IAMSTATUS2prod. Test application for IAM team.",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        106
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 84,
+      "name": "HRCprod",
+      "description": "agent for HRCprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        107
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 85,
+      "name": "ALFRESCOXprod",
+      "description": "Agent for Alfrescox/DX",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        108
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 86,
+      "name": "ALFRESCOprod",
+      "description": "Agent for Alfresco/ DC",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        109
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 87,
+      "name": "IDAPprod",
+      "description": "agent for IDAPprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        110
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 88,
+      "name": "DEVXprod",
+      "description": "DEVXprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        111
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 89,
+      "name": "WEMAUTHORprod",
+      "description": "Agent for WEMAUTHOR",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        112
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 90,
+      "name": "REALMprod",
+      "description": "realmprod agent",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        113
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 91,
+      "name": "LTAASprod",
+      "description": "LTAASprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        114
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 92,
+      "name": "BAASprod",
+      "description": "BAASprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        115
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 93,
+      "name": "MDXprod",
+      "description": "agent for MDXprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        116
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 94,
+      "name": "CMTSprod",
+      "description": "CMTSprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        117
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 95,
+      "name": "OSPprod",
+      "description": "Agent for OSP Prod Application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        118
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 96,
+      "name": "CMIprod",
+      "description": "Agent for CMIprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        119
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 97,
+      "name": "CMCSAPPprod",
+      "description": "CMCSAPPprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        120
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 98,
+      "name": "STREAMLINERprod",
+      "description": "STREAMLINERprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        121
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 99,
+      "name": "ITKEEPERprod",
+      "description": "ITKEEPERprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        122
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 100,
+      "name": "WBXAPPprod",
+      "description": "WBXAPPprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        123
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 101,
+      "name": "MCMPprod",
+      "description": "MCMPprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        124
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 102,
+      "name": "CPSSKILLSAPPprod",
+      "description": "CPSSKILLSAPPprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        125
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 103,
+      "name": "PMTprod",
+      "description": "PMTprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        126
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 104,
+      "name": "TAGprod",
+      "description": "Agent for TAG applications in Prod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        127
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 105,
+      "name": "POLARISprod",
+      "description": "POLARISprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        128
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 106,
+      "name": "IFSSERVICEASSURANCEprod",
+      "description": "Agent for  IFS_Service_Assurance application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        129
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 107,
+      "name": "SEARCHprod",
+      "description": "Agent for Searchprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        130
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 108,
+      "name": "CAMTprod",
+      "description": "Agent for CAMTprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        131
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 109,
+      "name": "ENGGprod",
+      "description": "Agent for Cpol Engineering App",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        132
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 110,
+      "name": "UNOCONNECTprod",
+      "description": "Agent for UNOCONNECT Application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        133
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 111,
+      "name": "UNOCONNECTPRODprod",
+      "description": "agent for UNOCONNECTPRODprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        134
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 112,
+      "name": "KRISPprod",
+      "description": "agent for KRISPprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        135
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 113,
+      "name": "KRSIPprod",
+      "description": "agent for KRSIPprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        136
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 114,
+      "name": "ODBprod",
+      "description": "agent for ODBprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        137
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 115,
+      "name": "FINprod",
+      "description": "agent for FINprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        138
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 116,
+      "name": "CDCPRODprod",
+      "description": "agent for CDCPRODprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        139
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 117,
+      "name": "CDBprod",
+      "description": "agent for CDBprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        140
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 118,
+      "name": "CCAUTOprod",
+      "description": "Agent for CC Automation Dashboard application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        141
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 119,
+      "name": "LQMTprod",
+      "description": "agent for LQMTprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        142
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 120,
+      "name": "SIOSprod",
+      "description": "Agent for application SIOS ",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        143
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 121,
+      "name": "UCMSprod",
+      "description": "agent for UCMSprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        144
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 122,
+      "name": "PCNMGMTprod",
+      "description": "Agent for PCNMGMT Application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        145
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 123,
+      "name": "BUIprod",
+      "description": "Agent for BU internal application ",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        146
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 5,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "7c86f4d9347e0fbfd2f7410eedeb5482b0ef35ba"
+      }
+    },
+    {
+      "id": 129,
+      "name": "LOGPARSERprod",
+      "description": "Agent for  LOGPARSERprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        161
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 130,
+      "name": "IACprod",
+      "description": "Agent for application IAC",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        162
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 131,
+      "name": "SATTOOLprod",
+      "description": "Agent for application SATTOOLprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        163
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 132,
+      "name": "VENAFIprod",
+      "description": "Agent for VENAFIprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        164
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 133,
+      "name": "OPSCOMMANDCENTERprod",
+      "description": "Agent for OPSCOMMANDCENTERprod application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        165
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 134,
+      "name": "DCNSprod",
+      "description": "agent for DCNSprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        166
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 135,
+      "name": "TRIAGEBOTprod",
+      "description": "Agent for application TRIAGEBOTprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        167
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 136,
+      "name": "AUTOINDIRECTprod",
+      "description": "Agent for AUTOINDIRECTprod application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        168
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 137,
+      "name": "OEMprod",
+      "description": "Agent for OEMprod application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        169
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 138,
+      "name": "MODELPIPELINEprod",
+      "description": "Agent for MODELPIPELINEprod application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        170
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 139,
+      "name": "BMATprod",
+      "description": "Agent for application BMATprod",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        171
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 140,
+      "name": "ZTDNGInprdAD",
+      "description": null,
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        172
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    },
+    {
+      "id": 141,
+      "name": "ZTDNGIprodAD",
+      "description": "Agent for ZTDNGIprodAD application",
+      "hostname": "wam.cisco.com",
+      "port": 3443,
+      "sharedSecretIds": [
+        173
+      ],
+      "overrideIpSource": false,
+      "ipSource": null,
+      "failoverHosts": [],
+      "failedRetryTimeout": 60,
+      "maxRetries": 2,
+      "unknownResourceMode": null,
+      "selectedCertificateId": 17,
+      "certificateHash": {
+        "algorithm": "SHA1",
+        "hexValue": "89108703f34f55b3c510c12860e12c64580960c1"
+      }
+    }
+  ]
+}
