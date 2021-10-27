@@ -61,6 +61,8 @@ https://www.baeldung.com/java-memory-leaks
 https://rcoh.me/posts/why-you-can-have-a-million-go-routines-but-only-1000-java-threads/
 
 * Is Java *pass-by-value* or *pass-by-reference* ?
+https://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value
+
 * Write a Java method to swap the values of two integer values (*Is it possible ?*):
 ```Java
 public void swap(int x, int y) { /** code here **/ }
@@ -80,13 +82,17 @@ public class PasserBy {
     }
 }
 ```
-* What is a *primitive type* in Java ? What are the main *primitive types* ?
+* What is a *primitive type* in Java ? What are the main *primitive types* ? https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+In Java SE 8 and later, you can use the long data type to represent an unsigned 64-bit long, which has a minimum value of 0 and a maximum value of 264-1. Use this data type when you need a range of values wider than those provided by int.
+In Java SE 8 and later, you can use the int data type to represent an unsigned 32-bit integer, which has a minimum value of 0 and a maximum value of 232-1.
 * What is *auto-boxing/unboxing* ?
-* What is *implicit casting* ? 
-* What is *explicit casting* ?
+Autoboxing: Converting a primitive value into an object of the corresponding wrapper class is called autoboxing. Unboxing: Converting an object of a wrapper type to its corresponding primitive value is called unboxing.
+* What is *implicit casting* ?  All implicit conversions are for primitive types.
+* What is *explicit casting* ?  interface int = (interface) obj
 * When developing an e-commerce site, what is the recommended type to use for the *price* if performance is not an issue. What if performance is an issue ?
 * Explain the usage of the following keyword: `final`.
 * Can you give example of a `final` class from the Java Standard library ?
+
 * What is the difference between `==` and `equals()` ?
 * What is the output if we execute the following code:
 ```Java
@@ -102,9 +108,20 @@ public class Ternary {
         System.out.println(x == y ? "A" : "B");
     }
 }
+* Java interning 
+    - Basically doing String.intern() on a series of strings will ensure that all strings having same contents share same memory. 
+    - Interned strings are stored in main heap from Java 7 onwards.
+    ```
+        Integer a = 10;
+        Integer b = 10;
+        System.out.println(a == b);
+    ```
+    - If the value p being boxed is an integer literal of type int between -128 and 127 inclusive (§3.10.1), or the boolean literal true or false (§3.10.3), or a character literal between '\u0000' and '\u007f' inclusive (§3.10.4), then let a and b be the results of any two boxing conversions of p. It is always the case that a == b.
+
 ```
 * Explain the usage of the following keywords: `strictfp`, `native`.
-
+    - strictfp is a modifier that stands for strict floating-point which was not introduced in the base version of java as it was introduced in Java version 1.2. It is used in java for restricting floating-point calculations and ensuring the same result on every platform while performing operations in the floating-point variable. Floating-point calculations are platform-dependent i.e. different output(floating-point values) is achieved when a class file is run on different platforms(16/32/64 bit processors). To solve this type of issue, strictfp keyword was introduced in JDK 1.2 version by following IEEE 754 standards for floating-point calculations. 
+    - native The native keyword is applied to a method to indicate that the method is implemented in native code using JNI (Java Native Interface). native is a modifier applicable only for methods and we can’t apply it anywhere else. The methods which are implemented in C, C++ are called native methods or foreign methods
 ## OOP Questions
 
 * What is a **constructor** ?
@@ -137,6 +154,11 @@ class SoftwareEngineer extends Engineer {
     public String favorite() { return "Java"; }
 }
 ```
+```
+Engineer Electricity 
+Engineer Java
+```
+
 * Can a `static` method be overwritten ?
 * Explain the concept of *Encapsulation*.
 * How would you encapsulate the following class:
@@ -149,9 +171,10 @@ public class Circle {
 * What is *immutability* ?
 * How can we write an **Immutable** class ?
 * Explain of the concept of **Marker Interface**. 
+    - Serializable, Cloneable, and Remote.
 * Explain the concept of **Serialization**.
-* Explain how the keyword **transient** works. What fields would you mark as transient in a class ?
-* Explain the concept behind the **Cloneable** interface and how does it work.
+* Explain how the keyword **transient** works. What fields would you mark as transient in a class ? transient is a variables modifier used in serialization. At the time of serialization, if we don't want to save value of a particular variable in a file, then we use transient keyword. When JVM comes across transient keyword, it ignores original value of the variable and save default value of that variable data type.
+* Explain the concept behind the **Cloneable** interface and how does it work? The Java.lang.Cloneable interface is a marker interface. It was introduced in JDK 1.0. There is a method clone() in the Object class. Cloneable interface is implemented by a class to make Object.clone() method valid thereby making field-for-field copy. 
 * What is the output if we execute the following code:
 ```Java
 public class Constructors {
@@ -173,6 +196,11 @@ class Dog extends Animal {
     }
 }
 ```
+```
+1
+2
+4
+```
 * What is a *Java Interface* ?
 * Does an interface `extends` or `implements` another interface ?
 * What is a *Java Abstract Class* ?
@@ -183,7 +211,8 @@ class Dog extends Animal {
 * What are the differences between **Exceptions** and an **Errors** ? Is there any similitude between the two ?
 * Name 3 **Unchecked Exceptions**.
 * Name 3 **Checked Exceptions**.
-* What are **Java Annotations** ?
+* What are **Java Annotations** ? 
+    - https://www.geeksforgeeks.org/annotations-in-java/
 * What are the **SOLID** principles and how do they apply to Java ? Explain:
     * **S**ingle-Responsibility;
     * **O**pen-Closed
