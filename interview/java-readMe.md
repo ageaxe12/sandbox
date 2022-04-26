@@ -419,17 +419,17 @@ class Test {
 
 ### Spring
 
-* Explain the concept of *Inversion of Control*. What is the **Spring IoC Container** ?
-* Explain the concept of *Dependency Injection* (in Spring).
+* Explain the concept of *Inversion of Control*. What is the **Spring IoC Container** ?  Explain the concept of *Dependency Injection* (in Spring).
+https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring
 * Do you know any other libraries that provide *Dependency Injection* features ?
 * What are the main advantages and disadvantages for *setter dependency injection* vs *constructor dependency injection* ?
 * What is a **Spring Bean** ?
-* What are the main **Spring Bean Scopes** ? Explain `singleton`, `prototype`, `request`, `session`, `global session`.
+* What are the main **Spring Bean Scopes** ? Explain `singleton`, `prototype`, `request`, `session`, `global session`. https://www.baeldung.com/spring-bean-scopes
 * What are the **Spring Stereotyping Annotations** ? Explain the differences between: `@Component`, `@Controller`, `@Repository`, `@Service`.
-* Explain how the following Spring Annotations are working: `@Autowired`, `@Qualifier`, `@Required`.
-* Explain how the `@Async` annotations functions.
+* Explain how the following Spring Annotations are working: `@Autowired`, `@Qualifier`, `@Required`. https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/annotation/Required.html
+* Explain how the `@Async` annotations functions. https://www.baeldung.com/spring-async
 * Explain the concept of **Spring Profiles**.
-* What is **Spring Boot** ? Give example of a Scenario where you would propose to use **Spring Boot** ?
+* What is **Spring Boot** ? Give example of a Scenario where you would propose to use **Spring Boot** ? https://www.baeldung.com/spring-vs-spring-boot
 * What is **Spring Data** ? Give example of a Scenario where you would propose to use **Spring Data** ?
 * What is **Spring Integration** ? Give example of a Scenario where you would propose to use **Spring Integration** ?
 * What is **Spring Batch** ? Give example of a Scenario where you would propose to use **Spring Batch** ?

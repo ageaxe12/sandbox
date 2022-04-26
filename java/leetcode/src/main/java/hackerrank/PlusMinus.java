@@ -13,7 +13,7 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-class Result {
+class PlusMinusResult {
 
     /*
      * Complete the 'plusMinus' function below.
@@ -43,7 +43,7 @@ class Result {
 
 }
 
-public class Solution {
+public class PlusMinus {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -53,7 +53,7 @@ public class Solution {
                 .map(Integer::parseInt)
                 .collect(toList());
 
-        Result.plusMinus(arr);
+        PlusMinusResult.plusMinus(arr);
 
         bufferedReader.close();
     }

@@ -24,15 +24,9 @@ class MiniMaxSumResult {
     public static void miniMaxSum(List<Integer> arr) {
         // Write your code here
         Collections.sort(arr);
+        long longNum = arr.get(1);
 
-        UnsignedInt num;
-        BigInteger   lowSum = BigInteger.ZERO;
-        lowSum.add(String.valueOf(arr.get(0)).add()
-        lowSum.
-                new BigInteger(arr.get(0)+arr.get(1)+arr.get(2)+arr.get(3));
-        BigInteger   hughSum = BigInteger.ZERO;
-                new BigInteger(arr.get(4)+arr.get(1)+arr.get(2)+arr.get(3));
-        System.out.format("%d %d",lowSum,hughSum);
+        System.out.format("%d %d",arr.get(0)+longNum+arr.get(2)+arr.get(3),arr.get(4)+longNum+arr.get(2)+arr.get(3));
     }
 
 }
